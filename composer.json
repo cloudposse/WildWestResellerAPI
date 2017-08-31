@@ -1,5 +1,5 @@
 {
-    "name": "cloudposse/wild-west-reseller-api",
+    "name": "cloudposse/wild_west_reseller_api",
     "type": "library",
     "license": "Apache-2.0",
     "require-dev": {

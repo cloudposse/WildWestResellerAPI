@@ -2,10 +2,9 @@
     "name": "cloudposse/wild_west_reseller_api",
     "type": "library",
     "license": "Apache-2.0",
-    "require-dev": {
+    "require": {
         "wsdl2phpgenerator/wsdl2phpgenerator": "3.4.0"
     },
-    "require": {},
     "autoload": {
         "files": [
             "src/autoload.php"

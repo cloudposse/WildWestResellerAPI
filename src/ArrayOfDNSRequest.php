@@ -1,0 +1,148 @@
+<?php
+
+namespace cloudposse\wild_west_reseller_api;
+
+class ArrayOfDNSRequest implements \ArrayAccess, \Iterator, \Countable
+{
+
+    /**
+     * @var DNSRequest[] $DNSRequest
+     */
+    protected $DNSRequest = null;
+
+    
+    public function __construct()
+    {
+    
+    }
+
+    /**
+     * @return DNSRequest[]
+     */
+    public function getDNSRequest()
+    {
+      return $this->DNSRequest;
+    }
+
+    /**
+     * @param DNSRequest[] $DNSRequest
+     * @return \cloudposse\wild_west_reseller_api\ArrayOfDNSRequest
+     */
+    public function setDNSRequest(array $DNSRequest = null)
+    {
+      $this->DNSRequest = $DNSRequest;
+      return $this;
+    }
+
+    /**
+     * ArrayAccess implementation
+     *
+     * @param mixed $offset An offset to check for
+     * @return boolean true on success or false on failure
+     */
+    public function offsetExists($offset)
+    {
+      return isset($this->DNSRequest[$offset]);
+    }
+
+    /**
+     * ArrayAccess implementation
+     *
+     * @param mixed $offset The offset to retrieve
+     * @return DNSRequest
+     */
+    public function offsetGet($offset)
+    {
+      return $this->DNSRequest[$offset];
+    }
+
+    /**
+     * ArrayAccess implementation
+     *
+     * @param mixed $offset The offset to assign the value to
+     * @param DNSRequest $value The value to set
+     * @return void
+     */
+    public function offsetSet($offset, $value)
+    {
+      if (!isset($offset)) {
+        $this->DNSRequest[] = $value;
+      } else {
+        $this->DNSRequest[$offset] = $value;
+      }
+    }
+
+    /**
+     * ArrayAccess implementation
+     *
+     * @param mixed $offset The offset to unset
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+      unset($this->DNSRequest[$offset]);
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return DNSRequest Return the current element
+     */
+    public function current()
+    {
+      return current($this->DNSRequest);
+    }
+
+    /**
+     * Iterator implementation
+     * Move forward to next element
+     *
+     * @return void
+     */
+    public function next()
+    {
+      next($this->DNSRequest);
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return string|null Return the key of the current element or null
+     */
+    public function key()
+    {
+      return key($this->DNSRequest);
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return boolean Return the validity of the current position
+     */
+    public function valid()
+    {
+      return $this->key() !== null;
+    }
+
+    /**
+     * Iterator implementation
+     * Rewind the Iterator to the first element
+     *
+     * @return void
+     */
+    public function rewind()
+    {
+      reset($this->DNSRequest);
+    }
+
+    /**
+     * Countable implementation
+     *
+     * @return DNSRequest Return count of elements
+     */
+    public function count()
+    {
+      return count($this->DNSRequest);
+    }
+
+}
